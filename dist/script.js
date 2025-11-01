@@ -40,3 +40,21 @@ const users = [];
 users.push(userOne, userTwo, userThree);
 const numbers = [5, 8, '8'];
 const arr = ['Kacpi', 'admin', 30];
+const addUser = (login, email, age, role) => {
+    const user = { login, email, age, role };
+    users.push(user);
+    return user;
+};
+const removeUser = (paramName, paramValue) => {
+    const index = users.findIndex((user) => user[paramName] === paramValue);
+    users.splice(index, 1);
+    return true;
+};
+const addUsers = (...users) => {
+    for (const user of users) {
+        addUser(user.login, user.email, user.age, user.role);
+    }
+};
+const getUser = (paramName, paramValue) => {
+    return users.find((user) => user[paramName] === paramValue);
+};
