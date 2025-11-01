@@ -58,3 +58,24 @@ const addUsers = (...users) => {
 const getUser = (paramName, paramValue) => {
     return users.find((user) => user[paramName] === paramValue);
 };
+const parseEmail = (val) => {
+    return val;
+};
+const parseAge = (val) => {
+    return val;
+};
+const parseField = (fieldValue) => {
+    if (typeof fieldValue === 'string') {
+        return parseEmail(fieldValue);
+    }
+    else if (typeof fieldValue === 'number') {
+        return parseAge(fieldValue);
+    }
+};
+const titleClickHandler = function () {
+    this.addEventListener('click', () => {
+        console.log('Kliknieto po operacji...');
+    });
+    const inputElem = document.querySelector('.input-elem');
+    inputElem.value = 'Gotowe!';
+};

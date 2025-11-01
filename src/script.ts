@@ -85,3 +85,26 @@ const addUsers = (...users: User[]) => {
 const getUser = (paramName: keyof User, paramValue: any): User => {
   return users.find((user) => user[paramName] === paramValue);
 };
+
+const parseEmail = (val: string): string => {
+  return val;
+};
+const parseAge = (val: number): number => {
+  return val;
+};
+
+const parseField = (fieldValue: string | number): string | number => {
+  if (typeof fieldValue === 'string') {
+    return parseEmail(fieldValue);
+  } else if (typeof fieldValue === 'number') {
+    return parseAge(fieldValue);
+  }
+};
+
+const titleClickHandler = function (this: HTMLButtonElement) {
+  this.addEventListener('click', () => {
+    console.log('Kliknieto po operacji...');
+  });
+  const inputElem = document.querySelector('.input-elem') as HTMLInputElement;
+  inputElem.value = 'Gotowe!';
+};
